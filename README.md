@@ -39,7 +39,7 @@
 ### 📫 چطور به من برسید؟
 
 - **Telegram:** [@immdjavad](https://t.me/immdjavad)
-- **Email:** ایمیل خودت را وارد کن
+- **Email:** Mohmmadjavad.mahmoodi@gmail.com
 
 ---
 
