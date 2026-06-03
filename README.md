@@ -41,6 +41,4 @@
 - **Telegram:** [@immdjavad](https://t.me/immdjavad)
 - **Email:** Mohmmadjavad.mahmoodi@gmail.com
 
----
 
-⭐ **اگر از کارهای من خوشتان آمد، ستاره فراموش نشود!**
