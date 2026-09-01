@@ -20,7 +20,16 @@ mohmmadjavad@github:~$ echo $STATUS
 </p>
 
 <p align="center">
-  <img src="assets/matrix-banner.svg" width="100%" alt="matrix rain"/>
+  <img src="crt-monitor.svg" width="85%" alt="retro analog CRT monitor"/>
+</p>
+
+<p align="center">
+  <sub>🖥️ نسخه‌ی کاملاً تعاملی توی فایل <code>preview.html</code> هست — بازش کن توی مرورگر:<br/>
+  بوت‌آپ BIOS واقعی، ترمینال زنده (تایپ کن <code>help</code>)، دکمه‌ی Power روشن/خاموش، دسته‌ی کانال برای عوض‌کردن رنگ فسفر (سبز/کهربایی/آبی)، افکت VHS با REC چشمک‌زن، و یه ایسترِگ مخفی: توی ترمینال بنویس <code>matrix</code> 🐇🕳️</sub>
+</p>
+
+<p align="center">
+  <img src="matrix-banner.svg" width="100%" alt="matrix rain"/>
 </p>
 
 ---
@@ -90,7 +99,7 @@ mohmmadjavad@github:~$ echo $STATUS
 - **Email:** Mohmmadjavad.mahmoodi@gmail.com
 
 <p align="center">
-  <img src="assets/matrix-banner.svg" width="100%" alt="matrix rain"/>
+  <img src="matrix-banner.svg" width="100%" alt="matrix rain"/>
 </p>
 
 <div align="center">

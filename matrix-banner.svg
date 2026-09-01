@@ -1,0 +1,655 @@
+<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001a00"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="220" fill="url(#bgGrad)"/>
+
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col0" attributeName="transform" type="translate" from="0,-154" to="0,234" dur="2.83s" begin="3.71s" repeatCount="indefinite"/>
+    <g id="col0">
+      <text x="10.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="10.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">0</text>
+      <text x="10.0" y="28" fill="#00ff41" opacity="0.32" text-anchor="middle">0</text>
+      <text x="10.0" y="42" fill="#00ff41" opacity="0.41" text-anchor="middle">0</text>
+      <text x="10.0" y="56" fill="#00ff41" opacity="0.49" text-anchor="middle">0</text>
+      <text x="10.0" y="70" fill="#00ff41" opacity="0.57" text-anchor="middle">1</text>
+      <text x="10.0" y="84" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="10.0" y="98" fill="#00ff41" opacity="0.74" text-anchor="middle">0</text>
+      <text x="10.0" y="112" fill="#00ff41" opacity="0.83" text-anchor="middle">0</text>
+      <text x="10.0" y="126" fill="#00ff41" opacity="0.92" text-anchor="middle">0</text>
+      <text x="10.0" y="140" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col1" attributeName="transform" type="translate" from="0,-140" to="0,234" dur="4.31s" begin="2.81s" repeatCount="indefinite"/>
+    <g id="col1">
+      <text x="30.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="30.0" y="14" fill="#00ff41" opacity="0.24" text-anchor="middle">0</text>
+      <text x="30.0" y="28" fill="#00ff41" opacity="0.34" text-anchor="middle">1</text>
+      <text x="30.0" y="42" fill="#00ff41" opacity="0.43" text-anchor="middle">1</text>
+      <text x="30.0" y="56" fill="#00ff41" opacity="0.53" text-anchor="middle">0</text>
+      <text x="30.0" y="70" fill="#00ff41" opacity="0.62" text-anchor="middle">0</text>
+      <text x="30.0" y="84" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="30.0" y="98" fill="#00ff41" opacity="0.81" text-anchor="middle">1</text>
+      <text x="30.0" y="112" fill="#00ff41" opacity="0.91" text-anchor="middle">1</text>
+      <text x="30.0" y="126" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col2" attributeName="transform" type="translate" from="0,-98" to="0,234" dur="5.37s" begin="1.68s" repeatCount="indefinite"/>
+    <g id="col2">
+      <text x="50.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="50.0" y="14" fill="#00ff41" opacity="0.29" text-anchor="middle">1</text>
+      <text x="50.0" y="28" fill="#00ff41" opacity="0.43" text-anchor="middle">0</text>
+      <text x="50.0" y="42" fill="#00ff41" opacity="0.57" text-anchor="middle">1</text>
+      <text x="50.0" y="56" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="50.0" y="70" fill="#00ff41" opacity="0.86" text-anchor="middle">1</text>
+      <text x="50.0" y="84" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col3" attributeName="transform" type="translate" from="0,-154" to="0,234" dur="3.88s" begin="0.62s" repeatCount="indefinite"/>
+    <g id="col3">
+      <text x="70.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="70.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">0</text>
+      <text x="70.0" y="28" fill="#00ff41" opacity="0.32" text-anchor="middle">1</text>
+      <text x="70.0" y="42" fill="#00ff41" opacity="0.41" text-anchor="middle">1</text>
+      <text x="70.0" y="56" fill="#00ff41" opacity="0.49" text-anchor="middle">0</text>
+      <text x="70.0" y="70" fill="#00ff41" opacity="0.57" text-anchor="middle">0</text>
+      <text x="70.0" y="84" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="70.0" y="98" fill="#00ff41" opacity="0.74" text-anchor="middle">0</text>
+      <text x="70.0" y="112" fill="#00ff41" opacity="0.83" text-anchor="middle">1</text>
+      <text x="70.0" y="126" fill="#00ff41" opacity="0.92" text-anchor="middle">0</text>
+      <text x="70.0" y="140" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col4" attributeName="transform" type="translate" from="0,-168" to="0,234" dur="2.8s" begin="1.39s" repeatCount="indefinite"/>
+    <g id="col4">
+      <text x="90.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="90.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">0</text>
+      <text x="90.0" y="28" fill="#00ff41" opacity="0.3" text-anchor="middle">1</text>
+      <text x="90.0" y="42" fill="#00ff41" opacity="0.38" text-anchor="middle">1</text>
+      <text x="90.0" y="56" fill="#00ff41" opacity="0.46" text-anchor="middle">0</text>
+      <text x="90.0" y="70" fill="#00ff41" opacity="0.54" text-anchor="middle">1</text>
+      <text x="90.0" y="84" fill="#00ff41" opacity="0.61" text-anchor="middle">0</text>
+      <text x="90.0" y="98" fill="#00ff41" opacity="0.69" text-anchor="middle">0</text>
+      <text x="90.0" y="112" fill="#00ff41" opacity="0.77" text-anchor="middle">0</text>
+      <text x="90.0" y="126" fill="#00ff41" opacity="0.85" text-anchor="middle">0</text>
+      <text x="90.0" y="140" fill="#00ff41" opacity="0.92" text-anchor="middle">1</text>
+      <text x="90.0" y="154" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col5" attributeName="transform" type="translate" from="0,-112" to="0,234" dur="5.47s" begin="3.2s" repeatCount="indefinite"/>
+    <g id="col5">
+      <text x="110.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="110.0" y="14" fill="#00ff41" opacity="0.27" text-anchor="middle">1</text>
+      <text x="110.0" y="28" fill="#00ff41" opacity="0.39" text-anchor="middle">0</text>
+      <text x="110.0" y="42" fill="#00ff41" opacity="0.51" text-anchor="middle">0</text>
+      <text x="110.0" y="56" fill="#00ff41" opacity="0.64" text-anchor="middle">0</text>
+      <text x="110.0" y="70" fill="#00ff41" opacity="0.76" text-anchor="middle">1</text>
+      <text x="110.0" y="84" fill="#00ff41" opacity="0.88" text-anchor="middle">1</text>
+      <text x="110.0" y="98" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col6" attributeName="transform" type="translate" from="0,-84" to="0,234" dur="3.13s" begin="4.71s" repeatCount="indefinite"/>
+    <g id="col6">
+      <text x="130.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="130.0" y="14" fill="#00ff41" opacity="0.32" text-anchor="middle">0</text>
+      <text x="130.0" y="28" fill="#00ff41" opacity="0.49" text-anchor="middle">1</text>
+      <text x="130.0" y="42" fill="#00ff41" opacity="0.66" text-anchor="middle">1</text>
+      <text x="130.0" y="56" fill="#00ff41" opacity="0.83" text-anchor="middle">1</text>
+      <text x="130.0" y="70" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col7" attributeName="transform" type="translate" from="0,-112" to="0,234" dur="2.92s" begin="3.72s" repeatCount="indefinite"/>
+    <g id="col7">
+      <text x="150.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="150.0" y="14" fill="#00ff41" opacity="0.27" text-anchor="middle">1</text>
+      <text x="150.0" y="28" fill="#00ff41" opacity="0.39" text-anchor="middle">1</text>
+      <text x="150.0" y="42" fill="#00ff41" opacity="0.51" text-anchor="middle">1</text>
+      <text x="150.0" y="56" fill="#00ff41" opacity="0.64" text-anchor="middle">0</text>
+      <text x="150.0" y="70" fill="#00ff41" opacity="0.76" text-anchor="middle">0</text>
+      <text x="150.0" y="84" fill="#00ff41" opacity="0.88" text-anchor="middle">1</text>
+      <text x="150.0" y="98" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col8" attributeName="transform" type="translate" from="0,-168" to="0,234" dur="2.64s" begin="0.55s" repeatCount="indefinite"/>
+    <g id="col8">
+      <text x="170.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="170.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">1</text>
+      <text x="170.0" y="28" fill="#00ff41" opacity="0.3" text-anchor="middle">0</text>
+      <text x="170.0" y="42" fill="#00ff41" opacity="0.38" text-anchor="middle">1</text>
+      <text x="170.0" y="56" fill="#00ff41" opacity="0.46" text-anchor="middle">1</text>
+      <text x="170.0" y="70" fill="#00ff41" opacity="0.54" text-anchor="middle">1</text>
+      <text x="170.0" y="84" fill="#00ff41" opacity="0.61" text-anchor="middle">1</text>
+      <text x="170.0" y="98" fill="#00ff41" opacity="0.69" text-anchor="middle">0</text>
+      <text x="170.0" y="112" fill="#00ff41" opacity="0.77" text-anchor="middle">0</text>
+      <text x="170.0" y="126" fill="#00ff41" opacity="0.85" text-anchor="middle">1</text>
+      <text x="170.0" y="140" fill="#00ff41" opacity="0.92" text-anchor="middle">1</text>
+      <text x="170.0" y="154" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col9" attributeName="transform" type="translate" from="0,-112" to="0,234" dur="3.8s" begin="2.27s" repeatCount="indefinite"/>
+    <g id="col9">
+      <text x="190.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="190.0" y="14" fill="#00ff41" opacity="0.27" text-anchor="middle">0</text>
+      <text x="190.0" y="28" fill="#00ff41" opacity="0.39" text-anchor="middle">0</text>
+      <text x="190.0" y="42" fill="#00ff41" opacity="0.51" text-anchor="middle">1</text>
+      <text x="190.0" y="56" fill="#00ff41" opacity="0.64" text-anchor="middle">0</text>
+      <text x="190.0" y="70" fill="#00ff41" opacity="0.76" text-anchor="middle">0</text>
+      <text x="190.0" y="84" fill="#00ff41" opacity="0.88" text-anchor="middle">1</text>
+      <text x="190.0" y="98" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col10" attributeName="transform" type="translate" from="0,-140" to="0,234" dur="5.36s" begin="4.61s" repeatCount="indefinite"/>
+    <g id="col10">
+      <text x="210.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="210.0" y="14" fill="#00ff41" opacity="0.24" text-anchor="middle">1</text>
+      <text x="210.0" y="28" fill="#00ff41" opacity="0.34" text-anchor="middle">1</text>
+      <text x="210.0" y="42" fill="#00ff41" opacity="0.43" text-anchor="middle">0</text>
+      <text x="210.0" y="56" fill="#00ff41" opacity="0.53" text-anchor="middle">0</text>
+      <text x="210.0" y="70" fill="#00ff41" opacity="0.62" text-anchor="middle">1</text>
+      <text x="210.0" y="84" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="210.0" y="98" fill="#00ff41" opacity="0.81" text-anchor="middle">0</text>
+      <text x="210.0" y="112" fill="#00ff41" opacity="0.91" text-anchor="middle">0</text>
+      <text x="210.0" y="126" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col11" attributeName="transform" type="translate" from="0,-140" to="0,234" dur="5.34s" begin="0.43s" repeatCount="indefinite"/>
+    <g id="col11">
+      <text x="230.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="230.0" y="14" fill="#00ff41" opacity="0.24" text-anchor="middle">0</text>
+      <text x="230.0" y="28" fill="#00ff41" opacity="0.34" text-anchor="middle">0</text>
+      <text x="230.0" y="42" fill="#00ff41" opacity="0.43" text-anchor="middle">0</text>
+      <text x="230.0" y="56" fill="#00ff41" opacity="0.53" text-anchor="middle">1</text>
+      <text x="230.0" y="70" fill="#00ff41" opacity="0.62" text-anchor="middle">0</text>
+      <text x="230.0" y="84" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="230.0" y="98" fill="#00ff41" opacity="0.81" text-anchor="middle">1</text>
+      <text x="230.0" y="112" fill="#00ff41" opacity="0.91" text-anchor="middle">0</text>
+      <text x="230.0" y="126" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col12" attributeName="transform" type="translate" from="0,-154" to="0,234" dur="3.44s" begin="4.98s" repeatCount="indefinite"/>
+    <g id="col12">
+      <text x="250.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="250.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">1</text>
+      <text x="250.0" y="28" fill="#00ff41" opacity="0.32" text-anchor="middle">1</text>
+      <text x="250.0" y="42" fill="#00ff41" opacity="0.41" text-anchor="middle">0</text>
+      <text x="250.0" y="56" fill="#00ff41" opacity="0.49" text-anchor="middle">0</text>
+      <text x="250.0" y="70" fill="#00ff41" opacity="0.57" text-anchor="middle">0</text>
+      <text x="250.0" y="84" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="250.0" y="98" fill="#00ff41" opacity="0.74" text-anchor="middle">1</text>
+      <text x="250.0" y="112" fill="#00ff41" opacity="0.83" text-anchor="middle">0</text>
+      <text x="250.0" y="126" fill="#00ff41" opacity="0.92" text-anchor="middle">0</text>
+      <text x="250.0" y="140" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col13" attributeName="transform" type="translate" from="0,-84" to="0,234" dur="2.71s" begin="3.16s" repeatCount="indefinite"/>
+    <g id="col13">
+      <text x="270.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="270.0" y="14" fill="#00ff41" opacity="0.32" text-anchor="middle">0</text>
+      <text x="270.0" y="28" fill="#00ff41" opacity="0.49" text-anchor="middle">0</text>
+      <text x="270.0" y="42" fill="#00ff41" opacity="0.66" text-anchor="middle">1</text>
+      <text x="270.0" y="56" fill="#00ff41" opacity="0.83" text-anchor="middle">0</text>
+      <text x="270.0" y="70" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col14" attributeName="transform" type="translate" from="0,-112" to="0,234" dur="4.51s" begin="1.07s" repeatCount="indefinite"/>
+    <g id="col14">
+      <text x="290.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="290.0" y="14" fill="#00ff41" opacity="0.27" text-anchor="middle">1</text>
+      <text x="290.0" y="28" fill="#00ff41" opacity="0.39" text-anchor="middle">0</text>
+      <text x="290.0" y="42" fill="#00ff41" opacity="0.51" text-anchor="middle">1</text>
+      <text x="290.0" y="56" fill="#00ff41" opacity="0.64" text-anchor="middle">1</text>
+      <text x="290.0" y="70" fill="#00ff41" opacity="0.76" text-anchor="middle">0</text>
+      <text x="290.0" y="84" fill="#00ff41" opacity="0.88" text-anchor="middle">0</text>
+      <text x="290.0" y="98" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col15" attributeName="transform" type="translate" from="0,-154" to="0,234" dur="3.79s" begin="2.12s" repeatCount="indefinite"/>
+    <g id="col15">
+      <text x="310.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="310.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">0</text>
+      <text x="310.0" y="28" fill="#00ff41" opacity="0.32" text-anchor="middle">0</text>
+      <text x="310.0" y="42" fill="#00ff41" opacity="0.41" text-anchor="middle">0</text>
+      <text x="310.0" y="56" fill="#00ff41" opacity="0.49" text-anchor="middle">1</text>
+      <text x="310.0" y="70" fill="#00ff41" opacity="0.57" text-anchor="middle">1</text>
+      <text x="310.0" y="84" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="310.0" y="98" fill="#00ff41" opacity="0.74" text-anchor="middle">0</text>
+      <text x="310.0" y="112" fill="#00ff41" opacity="0.83" text-anchor="middle">0</text>
+      <text x="310.0" y="126" fill="#00ff41" opacity="0.92" text-anchor="middle">0</text>
+      <text x="310.0" y="140" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col16" attributeName="transform" type="translate" from="0,-98" to="0,234" dur="3.77s" begin="1.39s" repeatCount="indefinite"/>
+    <g id="col16">
+      <text x="330.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="330.0" y="14" fill="#00ff41" opacity="0.29" text-anchor="middle">0</text>
+      <text x="330.0" y="28" fill="#00ff41" opacity="0.43" text-anchor="middle">1</text>
+      <text x="330.0" y="42" fill="#00ff41" opacity="0.57" text-anchor="middle">0</text>
+      <text x="330.0" y="56" fill="#00ff41" opacity="0.72" text-anchor="middle">0</text>
+      <text x="330.0" y="70" fill="#00ff41" opacity="0.86" text-anchor="middle">0</text>
+      <text x="330.0" y="84" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col17" attributeName="transform" type="translate" from="0,-168" to="0,234" dur="5.05s" begin="0.83s" repeatCount="indefinite"/>
+    <g id="col17">
+      <text x="350.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="350.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">1</text>
+      <text x="350.0" y="28" fill="#00ff41" opacity="0.3" text-anchor="middle">0</text>
+      <text x="350.0" y="42" fill="#00ff41" opacity="0.38" text-anchor="middle">1</text>
+      <text x="350.0" y="56" fill="#00ff41" opacity="0.46" text-anchor="middle">0</text>
+      <text x="350.0" y="70" fill="#00ff41" opacity="0.54" text-anchor="middle">0</text>
+      <text x="350.0" y="84" fill="#00ff41" opacity="0.61" text-anchor="middle">1</text>
+      <text x="350.0" y="98" fill="#00ff41" opacity="0.69" text-anchor="middle">0</text>
+      <text x="350.0" y="112" fill="#00ff41" opacity="0.77" text-anchor="middle">1</text>
+      <text x="350.0" y="126" fill="#00ff41" opacity="0.85" text-anchor="middle">1</text>
+      <text x="350.0" y="140" fill="#00ff41" opacity="0.92" text-anchor="middle">1</text>
+      <text x="350.0" y="154" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col18" attributeName="transform" type="translate" from="0,-126" to="0,234" dur="4.59s" begin="3.65s" repeatCount="indefinite"/>
+    <g id="col18">
+      <text x="370.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="370.0" y="14" fill="#00ff41" opacity="0.26" text-anchor="middle">0</text>
+      <text x="370.0" y="28" fill="#00ff41" opacity="0.36" text-anchor="middle">0</text>
+      <text x="370.0" y="42" fill="#00ff41" opacity="0.47" text-anchor="middle">1</text>
+      <text x="370.0" y="56" fill="#00ff41" opacity="0.57" text-anchor="middle">0</text>
+      <text x="370.0" y="70" fill="#00ff41" opacity="0.68" text-anchor="middle">0</text>
+      <text x="370.0" y="84" fill="#00ff41" opacity="0.79" text-anchor="middle">0</text>
+      <text x="370.0" y="98" fill="#00ff41" opacity="0.89" text-anchor="middle">1</text>
+      <text x="370.0" y="112" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col19" attributeName="transform" type="translate" from="0,-84" to="0,234" dur="4.25s" begin="2.51s" repeatCount="indefinite"/>
+    <g id="col19">
+      <text x="390.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="390.0" y="14" fill="#00ff41" opacity="0.32" text-anchor="middle">0</text>
+      <text x="390.0" y="28" fill="#00ff41" opacity="0.49" text-anchor="middle">0</text>
+      <text x="390.0" y="42" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="390.0" y="56" fill="#00ff41" opacity="0.83" text-anchor="middle">0</text>
+      <text x="390.0" y="70" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col20" attributeName="transform" type="translate" from="0,-154" to="0,234" dur="5.09s" begin="2.02s" repeatCount="indefinite"/>
+    <g id="col20">
+      <text x="410.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="410.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">0</text>
+      <text x="410.0" y="28" fill="#00ff41" opacity="0.32" text-anchor="middle">0</text>
+      <text x="410.0" y="42" fill="#00ff41" opacity="0.41" text-anchor="middle">1</text>
+      <text x="410.0" y="56" fill="#00ff41" opacity="0.49" text-anchor="middle">1</text>
+      <text x="410.0" y="70" fill="#00ff41" opacity="0.57" text-anchor="middle">1</text>
+      <text x="410.0" y="84" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="410.0" y="98" fill="#00ff41" opacity="0.74" text-anchor="middle">1</text>
+      <text x="410.0" y="112" fill="#00ff41" opacity="0.83" text-anchor="middle">0</text>
+      <text x="410.0" y="126" fill="#00ff41" opacity="0.92" text-anchor="middle">1</text>
+      <text x="410.0" y="140" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col21" attributeName="transform" type="translate" from="0,-98" to="0,234" dur="4.52s" begin="1.5s" repeatCount="indefinite"/>
+    <g id="col21">
+      <text x="430.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="430.0" y="14" fill="#00ff41" opacity="0.29" text-anchor="middle">0</text>
+      <text x="430.0" y="28" fill="#00ff41" opacity="0.43" text-anchor="middle">0</text>
+      <text x="430.0" y="42" fill="#00ff41" opacity="0.57" text-anchor="middle">1</text>
+      <text x="430.0" y="56" fill="#00ff41" opacity="0.72" text-anchor="middle">0</text>
+      <text x="430.0" y="70" fill="#00ff41" opacity="0.86" text-anchor="middle">0</text>
+      <text x="430.0" y="84" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col22" attributeName="transform" type="translate" from="0,-140" to="0,234" dur="3.3s" begin="4.67s" repeatCount="indefinite"/>
+    <g id="col22">
+      <text x="450.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="450.0" y="14" fill="#00ff41" opacity="0.24" text-anchor="middle">0</text>
+      <text x="450.0" y="28" fill="#00ff41" opacity="0.34" text-anchor="middle">1</text>
+      <text x="450.0" y="42" fill="#00ff41" opacity="0.43" text-anchor="middle">1</text>
+      <text x="450.0" y="56" fill="#00ff41" opacity="0.53" text-anchor="middle">0</text>
+      <text x="450.0" y="70" fill="#00ff41" opacity="0.62" text-anchor="middle">1</text>
+      <text x="450.0" y="84" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="450.0" y="98" fill="#00ff41" opacity="0.81" text-anchor="middle">0</text>
+      <text x="450.0" y="112" fill="#00ff41" opacity="0.91" text-anchor="middle">1</text>
+      <text x="450.0" y="126" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col23" attributeName="transform" type="translate" from="0,-98" to="0,234" dur="3.29s" begin="4.45s" repeatCount="indefinite"/>
+    <g id="col23">
+      <text x="470.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="470.0" y="14" fill="#00ff41" opacity="0.29" text-anchor="middle">1</text>
+      <text x="470.0" y="28" fill="#00ff41" opacity="0.43" text-anchor="middle">1</text>
+      <text x="470.0" y="42" fill="#00ff41" opacity="0.57" text-anchor="middle">0</text>
+      <text x="470.0" y="56" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="470.0" y="70" fill="#00ff41" opacity="0.86" text-anchor="middle">0</text>
+      <text x="470.0" y="84" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col24" attributeName="transform" type="translate" from="0,-140" to="0,234" dur="3.97s" begin="4.53s" repeatCount="indefinite"/>
+    <g id="col24">
+      <text x="490.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="490.0" y="14" fill="#00ff41" opacity="0.24" text-anchor="middle">0</text>
+      <text x="490.0" y="28" fill="#00ff41" opacity="0.34" text-anchor="middle">1</text>
+      <text x="490.0" y="42" fill="#00ff41" opacity="0.43" text-anchor="middle">1</text>
+      <text x="490.0" y="56" fill="#00ff41" opacity="0.53" text-anchor="middle">0</text>
+      <text x="490.0" y="70" fill="#00ff41" opacity="0.62" text-anchor="middle">0</text>
+      <text x="490.0" y="84" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="490.0" y="98" fill="#00ff41" opacity="0.81" text-anchor="middle">0</text>
+      <text x="490.0" y="112" fill="#00ff41" opacity="0.91" text-anchor="middle">1</text>
+      <text x="490.0" y="126" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col25" attributeName="transform" type="translate" from="0,-154" to="0,234" dur="3.83s" begin="3.53s" repeatCount="indefinite"/>
+    <g id="col25">
+      <text x="510.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="510.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">0</text>
+      <text x="510.0" y="28" fill="#00ff41" opacity="0.32" text-anchor="middle">0</text>
+      <text x="510.0" y="42" fill="#00ff41" opacity="0.41" text-anchor="middle">0</text>
+      <text x="510.0" y="56" fill="#00ff41" opacity="0.49" text-anchor="middle">0</text>
+      <text x="510.0" y="70" fill="#00ff41" opacity="0.57" text-anchor="middle">1</text>
+      <text x="510.0" y="84" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="510.0" y="98" fill="#00ff41" opacity="0.74" text-anchor="middle">1</text>
+      <text x="510.0" y="112" fill="#00ff41" opacity="0.83" text-anchor="middle">0</text>
+      <text x="510.0" y="126" fill="#00ff41" opacity="0.92" text-anchor="middle">0</text>
+      <text x="510.0" y="140" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col26" attributeName="transform" type="translate" from="0,-112" to="0,234" dur="5.2s" begin="3.98s" repeatCount="indefinite"/>
+    <g id="col26">
+      <text x="530.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="530.0" y="14" fill="#00ff41" opacity="0.27" text-anchor="middle">1</text>
+      <text x="530.0" y="28" fill="#00ff41" opacity="0.39" text-anchor="middle">0</text>
+      <text x="530.0" y="42" fill="#00ff41" opacity="0.51" text-anchor="middle">0</text>
+      <text x="530.0" y="56" fill="#00ff41" opacity="0.64" text-anchor="middle">0</text>
+      <text x="530.0" y="70" fill="#00ff41" opacity="0.76" text-anchor="middle">1</text>
+      <text x="530.0" y="84" fill="#00ff41" opacity="0.88" text-anchor="middle">1</text>
+      <text x="530.0" y="98" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col27" attributeName="transform" type="translate" from="0,-98" to="0,234" dur="5.09s" begin="4.88s" repeatCount="indefinite"/>
+    <g id="col27">
+      <text x="550.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="550.0" y="14" fill="#00ff41" opacity="0.29" text-anchor="middle">1</text>
+      <text x="550.0" y="28" fill="#00ff41" opacity="0.43" text-anchor="middle">0</text>
+      <text x="550.0" y="42" fill="#00ff41" opacity="0.57" text-anchor="middle">0</text>
+      <text x="550.0" y="56" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="550.0" y="70" fill="#00ff41" opacity="0.86" text-anchor="middle">1</text>
+      <text x="550.0" y="84" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col28" attributeName="transform" type="translate" from="0,-112" to="0,234" dur="2.98s" begin="3.51s" repeatCount="indefinite"/>
+    <g id="col28">
+      <text x="570.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="570.0" y="14" fill="#00ff41" opacity="0.27" text-anchor="middle">0</text>
+      <text x="570.0" y="28" fill="#00ff41" opacity="0.39" text-anchor="middle">1</text>
+      <text x="570.0" y="42" fill="#00ff41" opacity="0.51" text-anchor="middle">0</text>
+      <text x="570.0" y="56" fill="#00ff41" opacity="0.64" text-anchor="middle">0</text>
+      <text x="570.0" y="70" fill="#00ff41" opacity="0.76" text-anchor="middle">1</text>
+      <text x="570.0" y="84" fill="#00ff41" opacity="0.88" text-anchor="middle">1</text>
+      <text x="570.0" y="98" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col29" attributeName="transform" type="translate" from="0,-168" to="0,234" dur="4.89s" begin="1.14s" repeatCount="indefinite"/>
+    <g id="col29">
+      <text x="590.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="590.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">0</text>
+      <text x="590.0" y="28" fill="#00ff41" opacity="0.3" text-anchor="middle">1</text>
+      <text x="590.0" y="42" fill="#00ff41" opacity="0.38" text-anchor="middle">1</text>
+      <text x="590.0" y="56" fill="#00ff41" opacity="0.46" text-anchor="middle">1</text>
+      <text x="590.0" y="70" fill="#00ff41" opacity="0.54" text-anchor="middle">0</text>
+      <text x="590.0" y="84" fill="#00ff41" opacity="0.61" text-anchor="middle">1</text>
+      <text x="590.0" y="98" fill="#00ff41" opacity="0.69" text-anchor="middle">1</text>
+      <text x="590.0" y="112" fill="#00ff41" opacity="0.77" text-anchor="middle">1</text>
+      <text x="590.0" y="126" fill="#00ff41" opacity="0.85" text-anchor="middle">1</text>
+      <text x="590.0" y="140" fill="#00ff41" opacity="0.92" text-anchor="middle">0</text>
+      <text x="590.0" y="154" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col30" attributeName="transform" type="translate" from="0,-112" to="0,234" dur="3.04s" begin="4.81s" repeatCount="indefinite"/>
+    <g id="col30">
+      <text x="610.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="610.0" y="14" fill="#00ff41" opacity="0.27" text-anchor="middle">0</text>
+      <text x="610.0" y="28" fill="#00ff41" opacity="0.39" text-anchor="middle">0</text>
+      <text x="610.0" y="42" fill="#00ff41" opacity="0.51" text-anchor="middle">1</text>
+      <text x="610.0" y="56" fill="#00ff41" opacity="0.64" text-anchor="middle">1</text>
+      <text x="610.0" y="70" fill="#00ff41" opacity="0.76" text-anchor="middle">1</text>
+      <text x="610.0" y="84" fill="#00ff41" opacity="0.88" text-anchor="middle">1</text>
+      <text x="610.0" y="98" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col31" attributeName="transform" type="translate" from="0,-126" to="0,234" dur="5.2s" begin="0.95s" repeatCount="indefinite"/>
+    <g id="col31">
+      <text x="630.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="630.0" y="14" fill="#00ff41" opacity="0.26" text-anchor="middle">1</text>
+      <text x="630.0" y="28" fill="#00ff41" opacity="0.36" text-anchor="middle">0</text>
+      <text x="630.0" y="42" fill="#00ff41" opacity="0.47" text-anchor="middle">0</text>
+      <text x="630.0" y="56" fill="#00ff41" opacity="0.57" text-anchor="middle">1</text>
+      <text x="630.0" y="70" fill="#00ff41" opacity="0.68" text-anchor="middle">1</text>
+      <text x="630.0" y="84" fill="#00ff41" opacity="0.79" text-anchor="middle">0</text>
+      <text x="630.0" y="98" fill="#00ff41" opacity="0.89" text-anchor="middle">1</text>
+      <text x="630.0" y="112" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col32" attributeName="transform" type="translate" from="0,-154" to="0,234" dur="5.04s" begin="3.6s" repeatCount="indefinite"/>
+    <g id="col32">
+      <text x="650.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="650.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">1</text>
+      <text x="650.0" y="28" fill="#00ff41" opacity="0.32" text-anchor="middle">1</text>
+      <text x="650.0" y="42" fill="#00ff41" opacity="0.41" text-anchor="middle">1</text>
+      <text x="650.0" y="56" fill="#00ff41" opacity="0.49" text-anchor="middle">1</text>
+      <text x="650.0" y="70" fill="#00ff41" opacity="0.57" text-anchor="middle">1</text>
+      <text x="650.0" y="84" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="650.0" y="98" fill="#00ff41" opacity="0.74" text-anchor="middle">0</text>
+      <text x="650.0" y="112" fill="#00ff41" opacity="0.83" text-anchor="middle">1</text>
+      <text x="650.0" y="126" fill="#00ff41" opacity="0.92" text-anchor="middle">1</text>
+      <text x="650.0" y="140" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col33" attributeName="transform" type="translate" from="0,-140" to="0,234" dur="4.21s" begin="2.03s" repeatCount="indefinite"/>
+    <g id="col33">
+      <text x="670.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="670.0" y="14" fill="#00ff41" opacity="0.24" text-anchor="middle">1</text>
+      <text x="670.0" y="28" fill="#00ff41" opacity="0.34" text-anchor="middle">1</text>
+      <text x="670.0" y="42" fill="#00ff41" opacity="0.43" text-anchor="middle">0</text>
+      <text x="670.0" y="56" fill="#00ff41" opacity="0.53" text-anchor="middle">1</text>
+      <text x="670.0" y="70" fill="#00ff41" opacity="0.62" text-anchor="middle">1</text>
+      <text x="670.0" y="84" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="670.0" y="98" fill="#00ff41" opacity="0.81" text-anchor="middle">1</text>
+      <text x="670.0" y="112" fill="#00ff41" opacity="0.91" text-anchor="middle">1</text>
+      <text x="670.0" y="126" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col34" attributeName="transform" type="translate" from="0,-140" to="0,234" dur="3.92s" begin="4.51s" repeatCount="indefinite"/>
+    <g id="col34">
+      <text x="690.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="690.0" y="14" fill="#00ff41" opacity="0.24" text-anchor="middle">0</text>
+      <text x="690.0" y="28" fill="#00ff41" opacity="0.34" text-anchor="middle">1</text>
+      <text x="690.0" y="42" fill="#00ff41" opacity="0.43" text-anchor="middle">1</text>
+      <text x="690.0" y="56" fill="#00ff41" opacity="0.53" text-anchor="middle">0</text>
+      <text x="690.0" y="70" fill="#00ff41" opacity="0.62" text-anchor="middle">0</text>
+      <text x="690.0" y="84" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="690.0" y="98" fill="#00ff41" opacity="0.81" text-anchor="middle">0</text>
+      <text x="690.0" y="112" fill="#00ff41" opacity="0.91" text-anchor="middle">0</text>
+      <text x="690.0" y="126" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col35" attributeName="transform" type="translate" from="0,-84" to="0,234" dur="2.64s" begin="4.92s" repeatCount="indefinite"/>
+    <g id="col35">
+      <text x="710.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="710.0" y="14" fill="#00ff41" opacity="0.32" text-anchor="middle">1</text>
+      <text x="710.0" y="28" fill="#00ff41" opacity="0.49" text-anchor="middle">1</text>
+      <text x="710.0" y="42" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="710.0" y="56" fill="#00ff41" opacity="0.83" text-anchor="middle">1</text>
+      <text x="710.0" y="70" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col36" attributeName="transform" type="translate" from="0,-126" to="0,234" dur="3.23s" begin="3.28s" repeatCount="indefinite"/>
+    <g id="col36">
+      <text x="730.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="730.0" y="14" fill="#00ff41" opacity="0.26" text-anchor="middle">0</text>
+      <text x="730.0" y="28" fill="#00ff41" opacity="0.36" text-anchor="middle">1</text>
+      <text x="730.0" y="42" fill="#00ff41" opacity="0.47" text-anchor="middle">0</text>
+      <text x="730.0" y="56" fill="#00ff41" opacity="0.57" text-anchor="middle">0</text>
+      <text x="730.0" y="70" fill="#00ff41" opacity="0.68" text-anchor="middle">1</text>
+      <text x="730.0" y="84" fill="#00ff41" opacity="0.79" text-anchor="middle">0</text>
+      <text x="730.0" y="98" fill="#00ff41" opacity="0.89" text-anchor="middle">0</text>
+      <text x="730.0" y="112" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col37" attributeName="transform" type="translate" from="0,-126" to="0,234" dur="2.9s" begin="2.32s" repeatCount="indefinite"/>
+    <g id="col37">
+      <text x="750.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="750.0" y="14" fill="#00ff41" opacity="0.26" text-anchor="middle">1</text>
+      <text x="750.0" y="28" fill="#00ff41" opacity="0.36" text-anchor="middle">1</text>
+      <text x="750.0" y="42" fill="#00ff41" opacity="0.47" text-anchor="middle">1</text>
+      <text x="750.0" y="56" fill="#00ff41" opacity="0.57" text-anchor="middle">0</text>
+      <text x="750.0" y="70" fill="#00ff41" opacity="0.68" text-anchor="middle">1</text>
+      <text x="750.0" y="84" fill="#00ff41" opacity="0.79" text-anchor="middle">1</text>
+      <text x="750.0" y="98" fill="#00ff41" opacity="0.89" text-anchor="middle">1</text>
+      <text x="750.0" y="112" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col38" attributeName="transform" type="translate" from="0,-168" to="0,234" dur="4.41s" begin="3.83s" repeatCount="indefinite"/>
+    <g id="col38">
+      <text x="770.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="770.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">0</text>
+      <text x="770.0" y="28" fill="#00ff41" opacity="0.3" text-anchor="middle">1</text>
+      <text x="770.0" y="42" fill="#00ff41" opacity="0.38" text-anchor="middle">1</text>
+      <text x="770.0" y="56" fill="#00ff41" opacity="0.46" text-anchor="middle">0</text>
+      <text x="770.0" y="70" fill="#00ff41" opacity="0.54" text-anchor="middle">1</text>
+      <text x="770.0" y="84" fill="#00ff41" opacity="0.61" text-anchor="middle">0</text>
+      <text x="770.0" y="98" fill="#00ff41" opacity="0.69" text-anchor="middle">1</text>
+      <text x="770.0" y="112" fill="#00ff41" opacity="0.77" text-anchor="middle">1</text>
+      <text x="770.0" y="126" fill="#00ff41" opacity="0.85" text-anchor="middle">1</text>
+      <text x="770.0" y="140" fill="#00ff41" opacity="0.92" text-anchor="middle">0</text>
+      <text x="770.0" y="154" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col39" attributeName="transform" type="translate" from="0,-98" to="0,234" dur="3.19s" begin="3.47s" repeatCount="indefinite"/>
+    <g id="col39">
+      <text x="790.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="790.0" y="14" fill="#00ff41" opacity="0.29" text-anchor="middle">0</text>
+      <text x="790.0" y="28" fill="#00ff41" opacity="0.43" text-anchor="middle">1</text>
+      <text x="790.0" y="42" fill="#00ff41" opacity="0.57" text-anchor="middle">1</text>
+      <text x="790.0" y="56" fill="#00ff41" opacity="0.72" text-anchor="middle">1</text>
+      <text x="790.0" y="70" fill="#00ff41" opacity="0.86" text-anchor="middle">1</text>
+      <text x="790.0" y="84" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col40" attributeName="transform" type="translate" from="0,-84" to="0,234" dur="3.12s" begin="2.1s" repeatCount="indefinite"/>
+    <g id="col40">
+      <text x="810.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="810.0" y="14" fill="#00ff41" opacity="0.32" text-anchor="middle">1</text>
+      <text x="810.0" y="28" fill="#00ff41" opacity="0.49" text-anchor="middle">1</text>
+      <text x="810.0" y="42" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="810.0" y="56" fill="#00ff41" opacity="0.83" text-anchor="middle">1</text>
+      <text x="810.0" y="70" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col41" attributeName="transform" type="translate" from="0,-168" to="0,234" dur="3.67s" begin="4.46s" repeatCount="indefinite"/>
+    <g id="col41">
+      <text x="830.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="830.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">0</text>
+      <text x="830.0" y="28" fill="#00ff41" opacity="0.3" text-anchor="middle">1</text>
+      <text x="830.0" y="42" fill="#00ff41" opacity="0.38" text-anchor="middle">0</text>
+      <text x="830.0" y="56" fill="#00ff41" opacity="0.46" text-anchor="middle">1</text>
+      <text x="830.0" y="70" fill="#00ff41" opacity="0.54" text-anchor="middle">1</text>
+      <text x="830.0" y="84" fill="#00ff41" opacity="0.61" text-anchor="middle">1</text>
+      <text x="830.0" y="98" fill="#00ff41" opacity="0.69" text-anchor="middle">0</text>
+      <text x="830.0" y="112" fill="#00ff41" opacity="0.77" text-anchor="middle">1</text>
+      <text x="830.0" y="126" fill="#00ff41" opacity="0.85" text-anchor="middle">1</text>
+      <text x="830.0" y="140" fill="#00ff41" opacity="0.92" text-anchor="middle">1</text>
+      <text x="830.0" y="154" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col42" attributeName="transform" type="translate" from="0,-168" to="0,234" dur="3.9s" begin="0.64s" repeatCount="indefinite"/>
+    <g id="col42">
+      <text x="850.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">0</text>
+      <text x="850.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">1</text>
+      <text x="850.0" y="28" fill="#00ff41" opacity="0.3" text-anchor="middle">0</text>
+      <text x="850.0" y="42" fill="#00ff41" opacity="0.38" text-anchor="middle">0</text>
+      <text x="850.0" y="56" fill="#00ff41" opacity="0.46" text-anchor="middle">1</text>
+      <text x="850.0" y="70" fill="#00ff41" opacity="0.54" text-anchor="middle">0</text>
+      <text x="850.0" y="84" fill="#00ff41" opacity="0.61" text-anchor="middle">1</text>
+      <text x="850.0" y="98" fill="#00ff41" opacity="0.69" text-anchor="middle">0</text>
+      <text x="850.0" y="112" fill="#00ff41" opacity="0.77" text-anchor="middle">0</text>
+      <text x="850.0" y="126" fill="#00ff41" opacity="0.85" text-anchor="middle">1</text>
+      <text x="850.0" y="140" fill="#00ff41" opacity="0.92" text-anchor="middle">1</text>
+      <text x="850.0" y="154" fill="#c8ffc8" opacity="1.0" text-anchor="middle">1</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col43" attributeName="transform" type="translate" from="0,-98" to="0,234" dur="3.86s" begin="1.69s" repeatCount="indefinite"/>
+    <g id="col43">
+      <text x="870.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="870.0" y="14" fill="#00ff41" opacity="0.29" text-anchor="middle">1</text>
+      <text x="870.0" y="28" fill="#00ff41" opacity="0.43" text-anchor="middle">1</text>
+      <text x="870.0" y="42" fill="#00ff41" opacity="0.57" text-anchor="middle">1</text>
+      <text x="870.0" y="56" fill="#00ff41" opacity="0.72" text-anchor="middle">0</text>
+      <text x="870.0" y="70" fill="#00ff41" opacity="0.86" text-anchor="middle">1</text>
+      <text x="870.0" y="84" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+  <g font-family="monospace" font-size="14" filter="url(#glow)">
+    <animateTransform xlink:href="#col44" attributeName="transform" type="translate" from="0,-154" to="0,234" dur="4.12s" begin="5.0s" repeatCount="indefinite"/>
+    <g id="col44">
+      <text x="890.0" y="0" fill="#00ff41" opacity="0.15" text-anchor="middle">1</text>
+      <text x="890.0" y="14" fill="#00ff41" opacity="0.23" text-anchor="middle">0</text>
+      <text x="890.0" y="28" fill="#00ff41" opacity="0.32" text-anchor="middle">0</text>
+      <text x="890.0" y="42" fill="#00ff41" opacity="0.41" text-anchor="middle">0</text>
+      <text x="890.0" y="56" fill="#00ff41" opacity="0.49" text-anchor="middle">0</text>
+      <text x="890.0" y="70" fill="#00ff41" opacity="0.57" text-anchor="middle">0</text>
+      <text x="890.0" y="84" fill="#00ff41" opacity="0.66" text-anchor="middle">0</text>
+      <text x="890.0" y="98" fill="#00ff41" opacity="0.74" text-anchor="middle">0</text>
+      <text x="890.0" y="112" fill="#00ff41" opacity="0.83" text-anchor="middle">0</text>
+      <text x="890.0" y="126" fill="#00ff41" opacity="0.92" text-anchor="middle">0</text>
+      <text x="890.0" y="140" fill="#c8ffc8" opacity="1.0" text-anchor="middle">0</text>
+    </g>
+  </g>
+</svg>

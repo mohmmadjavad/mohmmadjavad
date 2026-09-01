@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>mohmmadjavad — CRT Preview</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --phosphor: #33ff6a;
+    --phosphor-dim: #0f6d2a;
+    --phosphor-bright: #baffcf;
+    --phosphor-glow: rgba(51,255,106,.6);
+    --amber-led: #ff9f1c;
+    --case-light: #4a4844;
+    --case-mid: #29281f;
+    --case-dark: #121110;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0; padding:0; height:100%;
+    background: radial-gradient(120% 90% at 50% 20%, #0d1710 0%, #050403 55%, #000000 100%);
+    font-family:'Vazirmatn', sans-serif;
+    color:#cfe8d6;
+    display:flex; align-items:center; justify-content:center;
+    min-height:100vh; overflow-x:hidden; padding: 40px 12px;
+  }
+
+  .room-caption{
+    position:fixed; top:18px; left:50%; transform:translateX(-50%);
+    font-family:'VT323', monospace; font-size:15px; letter-spacing:2px;
+    color:#5a6b5f; text-align:center; direction:ltr; z-index:50;
+  }
+
+  .rig{ display:flex; flex-direction:column; align-items:center; perspective:1400px; }
+
+  .antenna{ display:flex; justify-content:center; margin-bottom:-6px; }
+  .antenna svg{ width:120px; height:46px; }
+  .antenna line{ stroke:#3a3934; stroke-width:3; transform-origin: 60px 46px; animation: wiggle 6s ease-in-out infinite; }
+  .antenna line.r{ animation-delay:.3s; }
+  @keyframes wiggle{ 0%,100%{ transform:rotate(0deg);} 50%{ transform:rotate(1.2deg);} }
+
+  .monitor-case{
+    width:min(880px, 92vw);
+    background: linear-gradient(180deg, var(--case-light) 0%, var(--case-mid) 55%, #0c0b09 100%);
+    border-radius: 34px; padding: 30px 30px 46px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.08), inset 0 -6px 18px rgba(0,0,0,0.6),
+      0 30px 60px rgba(0,0,0,0.75), 0 0 120px rgba(51,255,106,0.05);
+    border: 1px solid #050504; transform: rotateX(2deg); position:relative;
+  }
+
+  .vents{ position:absolute; left:26px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:4px; }
+  .vents span{ width:3px; height:34px; background:#050504; border-radius:2px; opacity:.6; }
+
+  .brand-row{ display:flex; justify-content:space-between; align-items:center; padding: 0 6px 14px;
+    font-family:'VT323', monospace; direction:ltr; text-align:left; }
+  .brand-row .brand{ font-size:20px; letter-spacing:4px; color:#8a8a82; }
+  .brand-row .led-group{ display:flex; align-items:center; gap:8px; }
+  .led{ width:9px; height:9px; border-radius:50%; background: var(--phosphor); box-shadow:0 0 8px var(--phosphor); animation: ledPulse 2.6s infinite ease-in-out; }
+  .led.amber{ background:var(--amber-led); box-shadow:0 0 6px var(--amber-led); animation-duration:3.4s; }
+  .led.off{ background:#2a2a26 !important; box-shadow:none !important; animation:none !important; }
+  @keyframes ledPulse{ 0%,100%{opacity:1;} 50%{opacity:.25;} }
+  .led-label{ font-size:14px; color:#7d7d76; letter-spacing:1px;}
+
+  .screen-frame{ background:#000; border-radius: 26px / 40px; padding: 3px;
+    box-shadow: inset 0 0 0 3px #050403, inset 0 0 40px rgba(0,0,0,0.9); }
+
+  .screen{
+    position:relative; border-radius: 22px / 36px; overflow:hidden;
+    background: radial-gradient(120% 100% at 50% 0%, #062411 0%, #010603 60%, #000000 100%);
+    min-height: 580px; filter: brightness(var(--bri,1)) contrast(var(--con,1));
+    transition: filter .2s;
+  }
+  .screen.off{ animation: shutoff .5s ease-in forwards; }
+  @keyframes shutoff{
+    0%{ transform:scaleY(1) scaleX(1); opacity:1; }
+    60%{ transform:scaleY(0.02) scaleX(1); opacity:1; }
+    85%{ transform:scaleY(0.015) scaleX(0.05); opacity:1; }
+    100%{ transform:scaleY(0.015) scaleX(0); opacity:0; }
+  }
+  .screen.booting{ animation: bootUp 1s ease-out; }
+  @keyframes bootUp{
+    0%{ transform: scaleY(0.01); opacity:0; filter:brightness(3); }
+    35%{ transform: scaleY(0.02); opacity:1; }
+    55%{ transform: scaleY(1); filter:brightness(2.2); }
+    100%{ transform: scaleY(1); opacity:1; filter:brightness(1); }
+  }
+
+  .screen::before{ content:""; position:absolute; inset:0; pointer-events:none; z-index:5;
+    background: radial-gradient(120% 90% at 50% 40%, transparent 45%, rgba(0,0,0,0.55) 85%, rgba(0,0,0,0.92) 100%); }
+  .screen::after{ content:""; position:absolute; inset:0; pointer-events:none; z-index:6;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0.0) 0px, rgba(0,0,0,0.35) 1px, rgba(0,0,0,0.0) 3px);
+    mix-blend-mode: multiply; animation: scan 7s linear infinite; }
+  @keyframes scan{ 0%{ background-position-y:0; } 100%{ background-position-y:400px; } }
+
+  .flicker{ position:absolute; inset:0; z-index:4; pointer-events:none; background: var(--phosphor); opacity:0; animation: flick 6s infinite; }
+  @keyframes flick{ 0%,97%,100%{ opacity:0; } 97.4%{ opacity:.05; } 98%{ opacity:0; } 98.6%{ opacity:.03; } }
+
+  .glitch-burst{ position:absolute; inset:0; z-index:8; pointer-events:none; background:#fff; opacity:0; }
+  .glitch-burst.hit{ animation: burst .15s ease-out; }
+  @keyframes burst{ 0%{ opacity:.9;} 100%{ opacity:0;} }
+
+  canvas.noise{ position:absolute; inset:0; z-index:3; pointer-events:none; opacity:.05; mix-blend-mode: overlay; }
+  canvas.matrixfx{ position:absolute; inset:0; z-index:9; pointer-events:none; opacity:0; transition:opacity .3s; }
+  canvas.matrixfx.on{ opacity:1; }
+
+  .vhs-overlay{ position:absolute; top:14px; right:18px; z-index:7; font-family:'VT323',monospace;
+    color:#ff5a5a; font-size:15px; text-align:right; direction:ltr; text-shadow:0 0 4px rgba(255,0,0,.6); }
+  .vhs-overlay .rec{ display:flex; align-items:center; justify-content:flex-end; gap:6px; }
+  .vhs-dot{ width:8px; height:8px; border-radius:50%; background:#ff2d2d; animation:recBlink 1s infinite; }
+  @keyframes recBlink{ 50%{ opacity:.15; } }
+  .vhs-overlay .sig{ color:#9fffb4; opacity:.8; margin-top:2px; }
+
+  .bios{
+    position:absolute; inset:0; z-index:20; background:#000; color:#c9c9c9;
+    font-family:'VT323',monospace; font-size:17px; padding:26px 30px; direction:ltr; text-align:left;
+    line-height:1.55; white-space:pre-wrap;
+  }
+  .bios.hide{ display:none; }
+
+  .content{ position:relative; z-index:2; font-family:'VT323', monospace; color: var(--phosphor);
+    padding: 30px 36px 20px; direction:ltr; text-align:left;
+    text-shadow: 0 0 2px var(--phosphor-glow), 0 0 10px rgba(51,255,106,.25); }
+  .content.hidden{ display:none; }
+
+  .content h1{ font-size: 40px; margin:0 0 2px; letter-spacing:1px; color: var(--phosphor-bright);
+    text-shadow: 1px 0 0 rgba(255,0,80,.35), -1px 0 0 rgba(0,180,255,.35), 0 0 12px var(--phosphor-glow); }
+  .content .role{ font-size:21px; color:var(--phosphor-dim); margin-bottom:16px; }
+
+  .terminal{ background: rgba(0,20,8,0.35); border:1px solid rgba(51,255,106,0.25); border-radius:6px;
+    padding:12px 16px; font-size:18px; line-height:1.5; margin-bottom:16px; height:190px; overflow-y:auto; cursor:text; }
+  .terminal .out{ opacity:.92; }
+  .terminal .prompt-row{ display:flex; }
+  .terminal .prompt-row .p{ color:var(--phosphor-dim); margin-right:6px; white-space:nowrap; }
+  .terminal input{
+    background:transparent; border:none; outline:none; color:var(--phosphor);
+    font-family:'VT323',monospace; font-size:18px; flex:1; text-shadow: 0 0 2px var(--phosphor-glow);
+  }
+  .hint{ font-size:14px; color:var(--phosphor-dim); margin:-10px 0 14px; opacity:.85; }
+
+  .section-title{ font-size:22px; color:var(--phosphor-bright); margin: 16px 0 8px;
+    border-bottom:1px dashed rgba(51,255,106,.35); padding-bottom:5px; }
+
+  .skills-grid{ display:grid; grid-template-columns: 100px 1fr; gap: 5px 12px; font-size:17px; }
+  .skills-grid dt{ color:var(--phosphor-dim); }
+  .skills-grid dd{ margin:0; color: var(--phosphor); }
+  .tag{ display:inline-block; border:1px solid rgba(51,255,106,.4); padding:1px 7px; margin:2px 5px 2px 0; border-radius:3px; font-size:15px; }
+
+  .diff-line{ font-size:17px; margin:2px 0; }
+  .diff-line.add::before{ content:"+ "; color:#33ff6a; }
+
+  .contact-row{ display:flex; gap:16px; flex-wrap:wrap; margin-top:6px; }
+  .contact-row a{ color:var(--phosphor-bright); text-decoration:none; font-size:18px;
+    border:1px solid rgba(51,255,106,.4); padding:4px 11px; border-radius:4px; }
+  .contact-row a:hover{ background:rgba(51,255,106,.12); }
+
+  .statusbar{ display:flex; justify-content:space-between; font-size:13px; color:var(--phosphor-dim);
+    margin-top:16px; border-top:1px dashed rgba(51,255,106,.25); padding-top:7px; }
+
+  .knob-row{ display:flex; justify-content:center; align-items:flex-end; gap:22px; margin-top:18px; }
+  .knob-wrap{ display:flex; flex-direction:column; align-items:center; }
+  .knob{ width:26px; height:26px; border-radius:50%; cursor:pointer; user-select:none;
+    background: radial-gradient(circle at 35% 30%, #5a5850, #201f1c 70%);
+    box-shadow: 0 2px 3px rgba(0,0,0,.6), inset 0 0 3px rgba(255,255,255,.15);
+    position:relative; transition: transform .25s; }
+  .knob::after{ content:""; position:absolute; top:3px; left:50%; width:2px; height:9px; background:#0a0a09; transform:translateX(-50%); }
+  .knob-label{ font-family:'VT323',monospace; font-size:12px; color:#8a8a82; text-align:center; margin-top:4px; letter-spacing:1.5px; direction:ltr;}
+
+  .pwr-btn{ width:34px; height:34px; border-radius:50%; cursor:pointer; border:none;
+    background: radial-gradient(circle at 35% 30%, #6a6862, #201f1c 75%);
+    box-shadow: 0 2px 4px rgba(0,0,0,.7), inset 0 0 3px rgba(255,255,255,.2);
+    color:#8a8a82; font-size:13px; display:flex; align-items:center; justify-content:center;
+  }
+  .pwr-btn:active{ transform:scale(.92); }
+
+  .stand-neck{ width:70px; height:26px; margin:0 auto; background:linear-gradient(180deg,#3a3934,#141310); border-radius:0 0 4px 4px; }
+  .stand-base{ width:230px; height:16px; margin:0 auto; background:linear-gradient(180deg,#3a3934,#141310); border-radius:8px; box-shadow:0 10px 24px rgba(0,0,0,.6);}
+
+  @media (max-width:640px){
+    .content{ padding:20px 16px 16px; }
+    .content h1{ font-size:28px; }
+    .skills-grid{ grid-template-columns: 84px 1fr; font-size:14px; }
+    .terminal{ height:160px; }
+  }
+
+  .pixel-icon{ display:inline-block; vertical-align:-8px; margin-right:8px; color:var(--phosphor-bright); filter:drop-shadow(0 0 3px var(--phosphor-glow)); image-rendering:pixelated; }
+
+  canvas.ambient{ position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.16; }
+
+  .invader-wrap{ position:absolute; bottom:14px; left:18px; z-index:4; width:44px; height:32px; pointer-events:none;
+    animation: invaderWalk 9s ease-in-out infinite; }
+  @keyframes invaderWalk{ 0%,100%{ transform:translateX(0); } 50%{ transform:translateX(90px); } }
+  .invader-frame{ position:absolute; top:0; left:0; color:var(--phosphor); filter:drop-shadow(0 0 4px var(--phosphor-glow)); image-rendering:pixelated; transition:opacity .1s; }
+  .invader-b{ opacity:0; }
+  .invader-wrap.step .invader-a{ opacity:0; }
+  .invader-wrap.step .invader-b{ opacity:1; }
+</style>
+</head>
+<body>
+
+<div class="room-caption">// روشن/خاموش با دکمه PWR — تعویض رنگ فسفر با دکمه CH — یه ترمینال واقعی هم هست، تایپ کن: help</div>
+
+<div class="rig">
+  <div class="antenna">
+    <svg viewBox="0 0 120 46"><line x1="60" y1="46" x2="20" y2="4" class="l"/><line x1="60" y1="46" x2="100" y2="4" class="r"/></svg>
+  </div>
+
+  <div class="monitor-case">
+    <div class="vents"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+    <div class="brand-row">
+      <div class="brand">JAVAD—TERM 386</div>
+      <div class="led-group">
+        <span class="led-label">PWR</span>
+        <span class="led" id="pwrLed"></span>
+        <span class="led-label">HDD</span>
+        <span class="led amber" id="hddLed"></span>
+      </div>
+    </div>
+
+    <div class="screen-frame">
+      <div class="screen booting" id="screen">
+        <div class="bios" id="bios"></div>
+
+        <div class="flicker"></div>
+        <div class="glitch-burst" id="burst"></div>
+        <canvas class="ambient" id="ambientCanvas"></canvas>
+        <canvas class="noise" id="noiseCanvas"></canvas>
+        <canvas class="matrixfx" id="matrixCanvas"></canvas>
+
+        <div class="vhs-overlay">
+          <div class="rec"><span class="vhs-dot"></span>REC <span id="clock">--:--:--</span></div>
+          <div class="sig" id="sig">SIGNAL: 98%</div>
+        </div>
+
+
+        <div class="invader-wrap" id="invaderWrap">
+          <svg class="invader-frame invader-a" width="44" height="32" viewBox="0 0 44 32"><g shape-rendering="crispEdges">
+<rect x="8" y="0" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="0" width="4" height="4" fill="currentColor"/>
+<rect x="12" y="4" width="4" height="4" fill="currentColor"/>
+<rect x="28" y="4" width="4" height="4" fill="currentColor"/>
+<rect x="8" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="12" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="16" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="20" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="24" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="28" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="4" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="8" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="16" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="20" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="24" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="36" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="0" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="4" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="8" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="12" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="16" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="20" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="24" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="28" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="36" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="40" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="0" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="8" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="12" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="16" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="20" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="24" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="28" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="40" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="0" y="24" width="4" height="4" fill="currentColor"/>
+<rect x="8" y="24" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="24" width="4" height="4" fill="currentColor"/>
+<rect x="40" y="24" width="4" height="4" fill="currentColor"/>
+<rect x="12" y="28" width="4" height="4" fill="currentColor"/>
+<rect x="16" y="28" width="4" height="4" fill="currentColor"/>
+<rect x="24" y="28" width="4" height="4" fill="currentColor"/>
+<rect x="28" y="28" width="4" height="4" fill="currentColor"/>
+</g></svg>
+          <svg class="invader-frame invader-b" width="44" height="32" viewBox="0 0 44 32"><g shape-rendering="crispEdges">
+<rect x="8" y="0" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="0" width="4" height="4" fill="currentColor"/>
+<rect x="0" y="4" width="4" height="4" fill="currentColor"/>
+<rect x="12" y="4" width="4" height="4" fill="currentColor"/>
+<rect x="28" y="4" width="4" height="4" fill="currentColor"/>
+<rect x="40" y="4" width="4" height="4" fill="currentColor"/>
+<rect x="0" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="8" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="12" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="16" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="20" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="24" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="28" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="40" y="8" width="4" height="4" fill="currentColor"/>
+<rect x="0" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="4" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="8" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="16" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="20" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="24" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="36" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="40" y="12" width="4" height="4" fill="currentColor"/>
+<rect x="0" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="4" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="8" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="12" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="16" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="20" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="24" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="28" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="36" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="40" y="16" width="4" height="4" fill="currentColor"/>
+<rect x="8" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="12" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="16" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="20" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="24" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="28" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="20" width="4" height="4" fill="currentColor"/>
+<rect x="4" y="24" width="4" height="4" fill="currentColor"/>
+<rect x="36" y="24" width="4" height="4" fill="currentColor"/>
+<rect x="0" y="28" width="4" height="4" fill="currentColor"/>
+<rect x="8" y="28" width="4" height="4" fill="currentColor"/>
+<rect x="32" y="28" width="4" height="4" fill="currentColor"/>
+<rect x="40" y="28" width="4" height="4" fill="currentColor"/>
+</g></svg>
+        </div>
+        <div class="content hidden" id="content">
+          <h1>Mohammad Javad Mahmoodi</h1>
+          <div class="role">Full Stack Developer</div>
+
+          <div class="terminal" id="terminal">
+            <div class="out" id="termOut"></div>
+            <div class="prompt-row"><span class="p">guest@javad-term:~$</span><input id="cmdInput" autocomplete="off" spellcheck="false"/></div>
+          </div>
+          <div class="hint">امتحان کن: help · skills · projects · contact · theme · matrix · sudo hire-me</div>
+
+          <div class="section-title"><svg class="pixel-icon" width="36" height="33" viewBox="0 0 36 33"><g shape-rendering="crispEdges">
+<rect x="0" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="3" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="6" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="30" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="3" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="3" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="6" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="3" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="6" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="30" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="27" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="27" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="27" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="27" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="27" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="27" width="3" height="3" fill="currentColor"/>
+</g></svg>// SKILLS</div>
+          <dl class="skills-grid">
+            <dt>backend</dt><dd><span class="tag">Python</span><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">REST API</span></dd>
+            <dt>frontend</dt><dd><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">SVG Animation</span></dd>
+            <dt>database</dt><dd><span class="tag">SQLite</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span></dd>
+            <dt>tools</dt><dd><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Telegram Bot API</span></dd>
+          </dl>
+
+          <div class="section-title"><svg class="pixel-icon" width="36" height="33" viewBox="0 0 36 33"><g shape-rendering="crispEdges">
+<rect x="12" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="3" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="3" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="3" width="3" height="3" fill="currentColor"/>
+<rect x="6" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="3" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="6" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="3" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="6" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="24" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="27" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="27" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="27" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="30" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="30" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="30" width="3" height="3" fill="currentColor"/>
+</g></svg>// TOP PROJECTS</div>
+          <div class="diff-line add">Azin Dezh — UPVC door/window platform with SVG configurator</div>
+          <div class="diff-line add">Clothing store — E-commerce with AR try-on + smart chatbot</div>
+          <div class="diff-line add">Kala-Bot 2 — Divar scraper with Telegram price alerts</div>
+
+          <div class="section-title"><svg class="pixel-icon" width="36" height="33" viewBox="0 0 36 33"><g shape-rendering="crispEdges">
+<rect x="27" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="30" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="0" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="3" width="3" height="3" fill="currentColor"/>
+<rect x="30" y="3" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="3" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="30" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="6" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="30" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="9" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="30" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="12" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="30" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="15" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="3" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="6" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="30" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="18" width="3" height="3" fill="currentColor"/>
+<rect x="0" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="3" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="6" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="9" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="12" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="15" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="18" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="21" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="24" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="27" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="30" y="21" width="3" height="3" fill="currentColor"/>
+<rect x="33" y="21" width="3" height="3" fill="currentColor"/>
+</g></svg>// CONNECT</div>
+          <div class="contact-row">
+            <a href="https://t.me/immdjavad" target="_blank">Telegram</a>
+            <a href="https://instagram.com/immdjavad" target="_blank">Instagram</a>
+            <a href="https://linkedin.com/in/immdjavad" target="_blank">LinkedIn</a>
+            <a href="mailto:Mohmmadjavad.mahmoodi@gmail.com">Email</a>
+          </div>
+
+          <div class="statusbar"><span>SIGNAL: GITHUB.COM</span><span id="clock2">CH 03 · GRN</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="knob-row">
+      <div class="knob-wrap"><div class="knob" id="knobBright" data-adj="bri"></div><div class="knob-label">BRIGHT</div></div>
+      <div class="knob-wrap"><div class="knob" id="knobContrast" data-adj="con"></div><div class="knob-label">CONTRAST</div></div>
+      <div class="knob-wrap"><div class="knob" id="knobChannel"></div><div class="knob-label">CH ▸</div></div>
+      <div class="knob-wrap"><button class="pwr-btn" id="pwrBtn">⏻</button><div class="knob-label">POWER</div></div>
+    </div>
+  </div>
+
+  <div class="stand-neck"></div>
+  <div class="stand-base"></div>
+</div>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const screenEl = document.getElementById('screen');
+  const biosEl = document.getElementById('bios');
+  const contentEl = document.getElementById('content');
+  const termOut = document.getElementById('termOut');
+  const cmdInput = document.getElementById('cmdInput');
+  const terminal = document.getElementById('terminal');
+  const burst = document.getElementById('burst');
+  const pwrLed = document.getElementById('pwrLed');
+  const hddLed = document.getElementById('hddLed');
+  const sig = document.getElementById('sig');
+
+  const themes = [
+    {name:'GRN', p:'#33ff6a', dim:'#0f6d2a', bright:'#baffcf'},
+    {name:'AMB', p:'#ffb300', dim:'#7a5200', bright:'#ffe6ad'},
+    {name:'IBM', p:'#5ec8ff', dim:'#1c4a66', bright:'#cdeeff'}
+  ];
+  let themeIdx = 0;
+
+  function applyTheme(i){
+    const t = themes[i];
+    root.style.setProperty('--phosphor', t.p);
+    root.style.setProperty('--phosphor-dim', t.dim);
+    root.style.setProperty('--phosphor-bright', t.bright);
+    root.style.setProperty('--phosphor-glow', t.p + 'aa');
+    const c2 = document.getElementById('clock2');
+    if(c2) c2.textContent = 'CH 0' + (i+1) + ' · ' + t.name;
+  }
+
+  function flash(){
+    burst.classList.remove('hit'); void burst.offsetWidth; burst.classList.add('hit');
+  }
+
+  // ---------- BIOS boot sequence ----------
+  const biosLines = [
+    "JAVAD-BIOS (C) 1998, Creative Systems Inc.",
+    "CPU: Imagination-Core  x1  @ 3.14 GHz",
+    "Memory Test: 640K OK",
+    "Detecting IDE drives...",
+    "  Primary Master ... SKILLS.DRV  ....... OK",
+    "  Primary Slave  ... PROJECTS.DRV ...... OK",
+    "  Secondary Master . COFFEE.SYS ........ LOW",
+    "",
+    "Press DEL to enter SETUP, or just relax.",
+    "Booting Full-Stack Portfolio v2.0 ..."
+  ];
+
+  function runBios(cb){
+    biosEl.textContent = '';
+    let i = 0;
+    function step(){
+      if(i >= biosLines.length){ setTimeout(cb, 400); return; }
+      biosEl.textContent += biosLines[i] + '\n';
+      i++;
+      setTimeout(step, i===biosLines.length ? 250 : 140 + Math.random()*90);
+    }
+    step();
+  }
+
+  function bootSequence(){
+    screenEl.classList.remove('booting');
+    biosEl.classList.remove('hide');
+    contentEl.classList.add('hidden');
+    pwrLed.classList.remove('off');
+    hddLed.style.animation = 'ledPulse .4s infinite';
+    runBios(()=>{
+      biosEl.classList.add('hide');
+      contentEl.classList.remove('hidden');
+      void screenEl.offsetWidth;
+      screenEl.classList.add('booting');
+      hddLed.style.animation = '';
+      resetTerminal();
+      cmdInput.focus();
+    });
+  }
+
+  // ---------- interactive terminal ----------
+  const commands = {
+    help: "Available: whoami, skills, projects, contact, theme, matrix, sudo hire-me, clear",
+    whoami: "Full Stack Developer — Python / PHP / Laravel / JS",
+    skills: "Python · PHP · Laravel · REST API · JS · SQL · Git · Linux",
+    projects: "Azin Dezh (UPVC configurator) · Clothing AR store · Kala-Bot 2",
+    contact: "Telegram: @immdjavad · Mail: Mohmmadjavad.mahmoodi@gmail.com"
+  };
+
+  function printLine(html){
+    const d = document.createElement('div');
+    d.innerHTML = html;
+    termOut.appendChild(d);
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function resetTerminal(){
+    termOut.innerHTML = '';
+    printLine('guest@javad-term:~$ whoami');
+    printLine('<span style="color:var(--phosphor-bright)">&gt; Full Stack Developer</span>');
+    printLine('type <b>help</b> for a list of commands');
+  }
+
+  function runCommand(raw){
+    const cmd = raw.trim();
+    printLine('guest@javad-term:~$ ' + cmd);
+    if(!cmd) return;
+    const low = cmd.toLowerCase();
+    if(low === 'clear'){ termOut.innerHTML=''; return; }
+    if(low === 'theme'){
+      themeIdx = (themeIdx+1) % themes.length;
+      applyTheme(themeIdx); flash();
+      printLine('theme switched -> ' + themes[themeIdx].name);
+      return;
+    }
+    if(low === 'sudo hire-me' || low === 'sudo hire me'){
+      flash();
+      printLine('<span style="color:var(--phosphor-bright)">[sudo] password accepted. Permission granted — lets build something 🚀</span>');
+      return;
+    }
+    if(low === 'matrix'){
+      printLine('entering the matrix...');
+      startMatrix();
+      return;
+    }
+    if(commands[low]){ printLine(commands[low]); return; }
+    printLine('<span style="color:#ff6a6a">command not found: ' + cmd.replace(/</g,'&lt;') + '</span>');
+  }
+
+  cmdInput.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      runCommand(cmdInput.value);
+      cmdInput.value = '';
+    }
+  });
+  terminal.addEventListener('click', ()=> cmdInput.focus());
+
+  // ---------- knobs: brightness / contrast ----------
+  function dragKnob(el, cssVar, min, max, initial){
+    let val = initial, dragging=false, startY=0, startVal=initial, rot=0;
+    root.style.setProperty(cssVar, initial);
+    el.addEventListener('pointerdown', (e)=>{ dragging=true; startY=e.clientY; startVal=val; el.setPointerCapture(e.pointerId); });
+    window.addEventListener('pointermove', (e)=>{
+      if(!dragging) return;
+      const delta = (startY - e.clientY) / 100;
+      val = Math.min(max, Math.max(min, startVal + delta));
+      root.style.setProperty(cssVar, val.toFixed(2));
+      rot = (val-1) * 120;
+      el.style.transform = 'rotate(' + rot + 'deg)';
+    });
+    window.addEventListener('pointerup', ()=> dragging=false);
+  }
+  dragKnob(document.getElementById('knobBright'), '--bri', 0.5, 1.6, 1);
+  dragKnob(document.getElementById('knobContrast'), '--con', 0.6, 1.6, 1);
+
+  document.getElementById('knobChannel').addEventListener('click', (e)=>{
+    e.target.style.transform = 'rotate(' + (((themeIdx+1)*90)) + 'deg)';
+    themeIdx = (themeIdx+1) % themes.length;
+    applyTheme(themeIdx); flash();
+  });
+
+  // ---------- power button ----------
+  let isOn = true;
+  document.getElementById('pwrBtn').addEventListener('click', ()=>{
+    if(isOn){
+      screenEl.classList.remove('booting');
+      screenEl.classList.add('off');
+      pwrLed.classList.add('off');
+      isOn = false;
+    } else {
+      screenEl.classList.remove('off');
+      isOn = true;
+      bootSequence();
+    }
+  });
+
+  // ---------- clock + wobbly signal ----------
+  function tick(){
+    const t = new Date().toLocaleTimeString('en-GB');
+    document.getElementById('clock').textContent = t;
+  }
+  tick(); setInterval(tick, 1000);
+  setInterval(()=>{ sig.textContent = 'SIGNAL: ' + (88 + Math.floor(Math.random()*12)) + '%'; }, 2600);
+
+  // ---------- static noise ----------
+  const canvas = document.getElementById('noiseCanvas');
+  const ctx = canvas.getContext('2d');
+  function resize(){ canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; mResize(); ambResize(); }
+  window.addEventListener('resize', resize);
+  function drawNoise(){
+    const w = canvas.width, h = canvas.height;
+    if(w && h){
+      const imgData = ctx.createImageData(w, h);
+      const buffer = imgData.data;
+      for(let i=0; i<buffer.length; i+=4){
+        const v = Math.random()*255;
+        buffer[i]=v; buffer[i+1]=v; buffer[i+2]=v; buffer[i+3]=28;
+      }
+      ctx.putImageData(imgData, 0, 0);
+    }
+    setTimeout(()=>requestAnimationFrame(drawNoise), 60);
+  }
+
+  // ---------- matrix easter egg ----------
+  const mCanvas = document.getElementById('matrixCanvas');
+  const mCtx = mCanvas.getContext('2d');
+  let mDrops = [], mTimer = null, mStop = null;
+  function mResize(){ mCanvas.width = mCanvas.offsetWidth; mCanvas.height = mCanvas.offsetHeight; }
+  function startMatrix(){
+    mResize();
+    mCanvas.classList.add('on');
+    const fontSize = 14;
+    const cols = Math.floor(mCanvas.width / fontSize);
+    mDrops = new Array(cols).fill(0);
+    clearInterval(mTimer);
+    mTimer = setInterval(()=>{
+      mCtx.fillStyle = 'rgba(0,10,4,0.25)';
+      mCtx.fillRect(0,0,mCanvas.width, mCanvas.height);
+      mCtx.fillStyle = getComputedStyle(root).getPropertyValue('--phosphor').trim() || '#33ff6a';
+      mCtx.font = fontSize + 'px monospace';
+      for(let i=0;i<mDrops.length;i++){
+        const ch = Math.random() > 0.5 ? '1' : '0';
+        mCtx.fillText(ch, i*fontSize, mDrops[i]*fontSize);
+        if(mDrops[i]*fontSize > mCanvas.height && Math.random() > 0.975) mDrops[i]=0;
+        mDrops[i]++;
+      }
+    }, 45);
+    clearTimeout(mStop);
+    mStop = setTimeout(stopMatrix, 4500);
+  }
+  function stopMatrix(){
+    clearInterval(mTimer);
+    mCanvas.classList.remove('on');
+    mCtx.clearRect(0,0,mCanvas.width, mCanvas.height);
+  }
+  document.addEventListener('keydown', (e)=>{ if(mCanvas.classList.contains('on')) stopMatrix(); });
+
+  // ---------- ambient background binary rain (always-on waterfall) ----------
+  const ambCanvas = document.getElementById('ambientCanvas');
+  const ambCtx = ambCanvas.getContext('2d');
+  let ambDrops = [];
+  function ambResize(){
+    ambCanvas.width = ambCanvas.offsetWidth;
+    ambCanvas.height = ambCanvas.offsetHeight;
+    const fontSize = 13;
+    const cols = Math.floor(ambCanvas.width / fontSize) || 1;
+    ambDrops = new Array(cols).fill(0).map(()=> Math.random() * -40);
+  }
+  function drawAmbient(){
+    const fontSize = 13;
+    ambCtx.fillStyle = 'rgba(1,8,4,0.18)';
+    ambCtx.fillRect(0,0, ambCanvas.width, ambCanvas.height);
+    const col = getComputedStyle(root).getPropertyValue('--phosphor').trim() || '#33ff6a';
+    ambCtx.font = fontSize + 'px monospace';
+    ambCtx.fillStyle = col;
+    for(let i=0;i<ambDrops.length;i++){
+      const ch = Math.random() > 0.5 ? '1' : '0';
+      ambCtx.fillText(ch, i*fontSize, ambDrops[i]*fontSize);
+      if(ambDrops[i]*fontSize > ambCanvas.height && Math.random() > 0.985) ambDrops[i] = Math.random() * -10;
+      ambDrops[i] += 0.35 + Math.random()*0.4;
+    }
+    requestAnimationFrame(drawAmbient);
+  }
+
+  // ---------- invader mascot frame toggle ----------
+  const invaderWrap = document.getElementById('invaderWrap');
+  if(invaderWrap){
+    setInterval(()=> invaderWrap.classList.toggle('step'), 550);
+  }
+
+  // ---------- boot ----------
+  applyTheme(0);
+  resize();
+  drawNoise();
+  drawAmbient();
+  bootSequence();
+})();
+</script>
+
+</body>
+</html>
